@@ -1,0 +1,11 @@
+/src
+.editorconfig
+.editorconfig
+.eslintignore
+.eslintrc.json
+.github/workflows/main.yml
+.husky/commit-msg
+.husky/pre-commit
+.lintstagedrc
+commitlint.config.js
+tsconfig.json
