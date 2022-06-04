@@ -1,8 +1,23 @@
 {
   "name": "unico-sdk",
   "version": "1.0.0",
+  "author": {
+    "name": "Júlio César",
+    "email": "julio.souzam@mail.com"
+  },
+  "description": "A Unico SDK for Node.js",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:juliosouzam/unico-sdk.git"
+  },
   "license": "MIT",
+  "keywords": [
+    "unico",
+    "sdk",
+    "nodejs"
+  ],
   "scripts": {
     "test": "echo 'passing'",
     "prebuild": "rimraf dist",
