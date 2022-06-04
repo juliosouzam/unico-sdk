@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosInstance } from "axios";
 import { env } from "../../libs/env";
-import { ConsoleLog, ILogger } from "../../libs/logs";
+import { ConsoleLog } from "../../libs/logs";
+import { ILogger } from "../../libs/logs/logs";
 import { sleep } from "../../libs/utils";
 
 import { AuthClient } from "../auth-client";

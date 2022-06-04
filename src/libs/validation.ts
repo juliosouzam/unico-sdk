@@ -12,7 +12,7 @@ ajv.addFormat("double", { type: "number", validate: ajvOpenApiFormats.double });
 ajv.addFormat("byte", { type: "string", validate: ajvOpenApiFormats.byte });
 ajv.addFormat("cpf", {
   type: "string",
-  validate: (v: string) => /^\d{3}\.\d{3}\.\d{3}\-\d{2}$/.test(v),
+  validate: (v: string) => /^\d{3}\.\d{3}\.\d{3}-\d{2}$/.test(v),
 });
 ajv.addFormat("date", {
   type: "string",
@@ -21,7 +21,7 @@ ajv.addFormat("date", {
 ajv.addFormat("email", {
   type: "string",
   validate: (v: string) =>
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/.test(
       v
     ),
 });

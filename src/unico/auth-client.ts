@@ -1,15 +1,15 @@
-import { AxiosError, AxiosInstance } from "axios";
-import axios from "axios";
+import axios, { AxiosError, AxiosInstance } from "axios";
 import { addSeconds, isBefore } from "date-fns";
 import { sign } from "jsonwebtoken";
 import NodeCache from "node-cache";
 
 import { UnexpectedState } from "./errors";
-import { ConsoleLog, ILogger } from "../libs/logs";
 import { env } from "../libs/env";
 import { UnicoSecretKey } from "./secret-key";
+import { ConsoleLog } from "../libs/logs";
+import { ILogger } from "../libs/logs/logs";
 
-interface UCredential {
+interface IUCredential {
   access_token: string;
   expires_in: number;
   token_type: string;
@@ -23,7 +23,7 @@ type JWTCredential = {
 const JWT_EXPIRES_IN_SECONDS = 60;
 
 export class AuthClient {
-  private credentials: UCredential;
+  private credentials: IUCredential;
   private cache: NodeCache;
 
   private jwtToken: JWTCredential;
@@ -88,16 +88,16 @@ export class AuthClient {
     }
   }
 
-  public async getAccessToken(): Promise<UCredential> {
+  public async getAccessToken(): Promise<IUCredential> {
     if (this.cache.has("unico-access-token")) {
-      return this.cache.get<UCredential>("unico-access-token") as UCredential;
+      return this.cache.get<IUCredential>("unico-access-token") as IUCredential;
     }
 
     const params = new URLSearchParams();
     params.append("grant_type", env.get("UNICO_GRANT_TYPE") as string);
     params.append("assertion", this.jwtToken.token);
     try {
-      const response = await this.client.post<UCredential>(
+      const response = await this.client.post<IUCredential>(
         `/oauth2/token`,
         params,
         {
@@ -127,7 +127,7 @@ export class AuthClient {
     }
   }
 
-  public async getCredentials(): Promise<UCredential> {
+  public async getCredentials(): Promise<IUCredential> {
     this.getJwtToken();
 
     if (!this.credentials) {

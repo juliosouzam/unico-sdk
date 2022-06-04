@@ -1,11 +1,10 @@
 import type { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 import axiosRetry from "axios-retry";
 
-import { env } from "../libs/env";
-import { ILogger } from "../libs/logs";
+import { ILogger } from "../libs/logs/logs";
 import { AuthClient } from "./auth-client";
 
-interface UnicoRequestConfig {
+interface IUnicoRequestConfig {
   accessToken: string;
   path: string;
   method: "GET" | "POST" | "PUT" | "PATCH" | "DELETE";
@@ -63,7 +62,7 @@ export abstract class UnicoClient {
   }
 
   public async request<T>(
-    config: UnicoRequestConfig
+    config: IUnicoRequestConfig
   ): Promise<AxiosResponse<T>> {
     const { method, path, body } = config;
 

@@ -8,7 +8,7 @@ export interface ILogger {
   debug(key: string, value: unknown): void;
 }
 
-export abstract class Logger<T = unknown> implements ILogger {
+export abstract class Logger implements ILogger {
   public info(key: string, value: unknown): void {
     this.log("INFO", key, value);
   }
@@ -30,10 +30,4 @@ export abstract class Logger<T = unknown> implements ILogger {
   }
 
   protected abstract log(type: LogType, key: string, value: unknown): void;
-}
-
-export class ConsoleLog extends Logger {
-  protected log(type: LogType, key: string, value: unknown): void {
-    console.log(`[${type}] ${key}:`, value);
-  }
 }
