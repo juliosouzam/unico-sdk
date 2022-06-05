@@ -9,7 +9,7 @@ import { UnicoSecretKey } from "./secret-key";
 import { ConsoleLog } from "../libs/logs";
 import { ILogger } from "../libs/logs/logs";
 
-interface IUCredential {
+export interface IUCredential {
   access_token: string;
   expires_in: number;
   token_type: string;
