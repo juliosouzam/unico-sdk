@@ -62,8 +62,8 @@ export class AuthClient {
       const now = new Date();
       const exp = addSeconds(now, JWT_EXPIRES_IN_SECONDS);
       const payload = {
-        iss: `${env.get("UNICO_SERVICE_NAME")}@${env.get(
-          "UNICO_TENET_ID"
+        iss: `${env.get("UNICO_SVC_NAME")}@${env.get(
+          "UNICO_TENANT_ID"
         )}.iam.acesso.io`,
         aud: env.get("UNICO_AUTH_URL"),
         scope: "*",
