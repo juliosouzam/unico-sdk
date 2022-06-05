@@ -23,7 +23,8 @@
     "prebuild": "rimraf dist",
     "build": "tsc --build",
     "lint": "eslint --fix --ext .ts src/**/*.ts",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "owasp": "owasp-dependency-check --project \"unico-sdk\" -f HTML JSON --scan=yarn.lock"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
@@ -45,6 +46,7 @@
     "eslint-plugin-prettier": "^4.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.0",
+    "owasp-dependency-check": "^0.0.18",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "ts-node": "^10.8.1",
