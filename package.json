@@ -22,7 +22,7 @@
     "test": "echo 'passing'",
     "prebuild": "rimraf dist",
     "build": "tsc --build",
-    "lint": "eslint --fix --ext .ts src/**/*.ts",
+    "lint": "eslint --fix .",
     "prepare": "husky install",
     "owasp": "owasp-dependency-check --project \"unico-sdk\" -f HTML JSON --scan=yarn.lock"
   },

@@ -50,8 +50,6 @@ export class Process extends UnicoClient {
         }
       );
 
-      this.logger.debug("RESPONSE", response.data);
-
       validateCreateProcessResponse(response.data);
 
       return response.data;

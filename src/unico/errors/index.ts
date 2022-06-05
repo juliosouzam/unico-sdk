@@ -1,17 +1,16 @@
+/* eslint-disable max-classes-per-file */
+import type { AxiosError } from "axios";
+
 export class MissingArguments extends Error {}
 
 export class UnexpectedState extends Error {}
 
 export class NotFound extends Error {}
 
-import type { AxiosError, AxiosResponse } from "axios";
-
 export type UnicoErrorType = {
   Code: string;
-  Description?: string;
+  Description: string;
 };
-
-export type UnicoErrorList = Array<UnicoErrorType>;
 
 export class UnicoError extends Error {
   constructor(public error: UnicoErrorType) {
